@@ -18,7 +18,11 @@ T F F
 F T T
 
 F F T
+
 **Example:** If you have connections with seniors, you will get the promotion.
+
 **p** = If you have connections with the seniors
+
 **q** = You will get the promotion
+
 If we don't have connections with seniors we cannot argue the compound proposition to be false or true.
