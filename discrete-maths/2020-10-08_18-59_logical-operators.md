@@ -10,6 +10,7 @@
 
 Let p and q be propositions. The propsition `if p then q` denoted by `p -> q` is called `implication` or `conditional statement`
 **Truth Table:**
+
 P Q Result
 
 T T T
