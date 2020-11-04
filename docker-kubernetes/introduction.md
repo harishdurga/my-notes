@@ -22,3 +22,11 @@ the `docker` keyword in the above command will invoke the docker client. Docker 
     executable that produces the output you are currently reading.
 - The Docker daemon streamed that output to the Docker client, which sent it
     to your terminal.
+
+
+### What Containers really are?
+  #### Linux Namespaces:
+  Linux namespaces comprise some of the fundamental technologies behind most modern-day container implementations. At a high level, they allow for isolation of global system resources between independent processes.For example, the PID namespace isolates the process ID number space. This means that two processes running on the same host can have the same PID! Ref: [https://medium.com/@teddyking/linux-namespaces-850489d3ccf](https://medium.com/@teddyking/linux-namespaces-850489d3ccf)
+  
+  So containers are independent processes with an allocated group of isolated processes. For example a container will be allocated file system, memory and metered access to physical resources by the kernel.
+  
