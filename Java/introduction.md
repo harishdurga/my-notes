@@ -28,3 +28,11 @@ System.out.println("Underflow "+(intMinNumber-1));
 ```
 
 #### We can use underscores in large integers for better readibility. Ex:`int test = 214_7_48_3647;`
+
+### Casting
+With casting we can covert on data type into another data type.
+Ex:
+```java
+int myNumber = 25;
+byte myNewNumber = (byte) myNumber;
+```
