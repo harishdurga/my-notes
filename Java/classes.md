@@ -16,3 +16,6 @@ public Bank(String accountNumber, double balance, String customerName, String em
 }
 ```
 One thing to note here is that when calling one constrcutor from another the first line should be the call to the constructor and no other code statement is allowed.
+
+
+##### Static Variables are not instance specific but shared among the instances
