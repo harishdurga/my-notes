@@ -26,11 +26,11 @@ Communication between objects, Usages of mostly interfaces Ex: Command, Iterator
 Laravel is already using the factory pattern whenever we are returning a view
 ex: `return view('home',['message'=>'hello'])`
 ```php
-interface PizzaFactoryContract(){
+interface PizzaFactoryContract{
 	public function make(array $topping=[]):Pizza
 }
 
-class PizzaFactory implements PizzaFactoryContract(){
+class PizzaFactory implements PizzaFactoryContract{
 	public function make(array $topping=[]):Pizza{
 	return new Pizza($topping)
 }
