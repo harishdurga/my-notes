@@ -36,3 +36,4 @@ class PizzaFactory implements PizzaFactoryContract{
 }
 }
 ```
+In Factory pattern, we abstract the process of instantiating or obtaining an object.
