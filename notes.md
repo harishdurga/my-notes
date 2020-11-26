@@ -1,1 +1,1 @@
-- We can use a final class as a parent for another class.
+- We can use a final class as a parent for another class. A final class cannot be extended.
