@@ -26,3 +26,9 @@ Ex:
 #### Stopping Containers
 **Stop**: `docker stop <container id>` will send a `SIGTERM` signal to the container. There will be a grace period of 10 seconds which means the system will wait 10 seconds for the process to complete it's work. If the process is not able to complete the work withing the grace period then the system sends `SIGKILL` kill signal to the container to kill the process instantly.
 **Kill**: `docker kill <container id>`.Kill the running process instantly and stop the container.
+
+#### Executing An Additional Command inside container
+```bash
+docker exec -it <container id> <command>
+```
+`-i` or `--interactive` is to Keep STDIN open even if not attached and the `-t` or `--tty` to Allocate a pseudo-TTY so that the output from the container will be formatted when being presented in the host terminal.
