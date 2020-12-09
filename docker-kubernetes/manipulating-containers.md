@@ -32,3 +32,12 @@ Ex:
 docker exec -it <container id> <command>
 ```
 `-i` or `--interactive` is to Keep STDIN open even if not attached and the `-t` or `--tty` to Allocate a pseudo-TTY so that the output from the container will be formatted when being presented in the host terminal.
+
+#### Starting A Shell
+```bash
+docker exec -it <container id> sh
+```
+and 
+```bash
+docker run <image> sh
+```
