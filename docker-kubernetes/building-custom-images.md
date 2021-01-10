@@ -1,7 +1,7 @@
 ## Building Custom Images
 
 #### Redis Image Dockerfile
-```docker
+```dockerfile
 #Use an existing docker image as base
 FROM alpine
 #Install any dependency
