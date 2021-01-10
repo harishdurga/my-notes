@@ -20,3 +20,8 @@ Ex:
   ```bash
   docker build -t harish/laravel:latest .
   ```
+#### Docker Commit:
+Instead of building an image from a Dockerfile, first we take a base image and we run our commands and install other things within the container the we run the following command to generate an image out of the current state of the running container.
+```bash
+  docker commit -c 'CMD ["redis-server"]' <container id>
+```  
