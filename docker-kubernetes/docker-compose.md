@@ -50,3 +50,8 @@ To restart container with docker-compose we have 4 different restart policies.
 - *on-failure* : only restart if the conatiner stopped with an error code
 - *unless-stopped* : always restart unless we forcibly stop it
 
+#### To check the status of the containers:
+```bash
+docker-compose ps
+```
+
