@@ -7,6 +7,7 @@ services:
   redis-server:
     image: 'redis'
   node-app:
+    restart:always
     build: .
     ports:
       - '4001:8081'
@@ -29,3 +30,23 @@ To build/rebuild and run the containers we have to add the `--build` flag at the
 ```bash
 docker-compose up --build
 ```
+When we run the up command, the docker-compose first creates a network and then it build and runs the containers.
+the `-d` or `--detach` flag with the command will run the containers in the background.
+```bash
+docker-compose up -d
+```
+
+
+#### To stop the containers:
+```bash
+docker-compose down
+```
+by running this command it will stop and removes the containers and also the network.
+
+#### Automatic container restarts:
+To restart container with docker-compose we have 4 different restart policies.
+- *"no"* : never attempt to restart the container if it stops or crashes. Double needs to be there. Because in an yaml file no refers to false.
+- *always* : if the conatiner stop always restart the conatainer
+- *on-failure* : only restart if the conatiner stopped with an error code
+- *unless-stopped* : always restart unless we forcibly stop it
+
