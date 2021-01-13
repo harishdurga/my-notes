@@ -20,3 +20,12 @@ redisClient.configure({
 host:'redis-server'
 })
 ```
+#### To start the containers:
+At the project root where the `docker-compose.yaml` file is located we have to run the following command
+```bash
+docker-compose up
+```
+To build/rebuild and run the containers we have to add the `--build` flag at the end of up command.
+```bash
+docker-compose up --build
+```
