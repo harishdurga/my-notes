@@ -14,3 +14,19 @@ docker run -p 3000:3000 -v /app/node_modules -v $(pwd):/app <image id>
 ```
 With `-v $(pwd):/app` we are saying map the present working directory into the `/app` directory inside the container
 With `-v /app/node_modules` we are saying don't map these folders to the pwd folders instead use the node_modules folders inside the container only.
+
+#### Using Docker Compose To Simplify the above command:
+```yaml
+version: '3'
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev 
+    ports:
+      - "3000:3000"
+    volumes:
+      - /app/node_modules
+      - .:/app  
+```
+Here for the `build` property we specified `context` and `dockerfile` instead of a `.` because we have a `Dockerfile.dev` and not the default one.
