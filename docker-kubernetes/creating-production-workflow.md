@@ -30,3 +30,10 @@ services:
       - .:/app  
 ```
 Here for the `build` property we specified `context` and `dockerfile` instead of a `.` because we have a `Dockerfile.dev` and not the default one.
+
+#### Docker Attach:
+```bash
+docker attach <container id>
+```
+this will attach our terminal to the std in, out and err of the container specified with id in the command.
+
