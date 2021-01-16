@@ -35,5 +35,8 @@ Here for the `build` property we specified `context` and `dockerfile` instead of
 ```bash
 docker attach <container id>
 ```
-this will attach our terminal to the std in, out and err of the container specified with id in the command.
+this will attach our terminal to the std in, out and err of the container specified with id in the command. This will be attached to the standard in of the primary process inside the conatiner. so if we run the `npm run test` then the `npm` will be the primary process in the conatiner.
+
+#### Multistep Docker Builds:
+So in a multistep build process, the result of first step will be used in the second build step. In this process we have two phases. `Build phase` and `run phase`. 
 
