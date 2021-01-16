@@ -39,4 +39,23 @@ this will attach our terminal to the std in, out and err of the container specif
 
 #### Multistep Docker Builds:
 So in a multistep build process, the result of first step will be used in the second build step. In this process we have two phases. `Build phase` and `run phase`. 
+```dockerfile
+FROM node:alpine as builder
+
+WORKDIR '/app'
+
+COPY package.json .
+
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+
+FROM nginx
+
+COPY --from=builder /app/build /usr/share/nginx/html
+```
+The second `FROM` keyword marks the end of the first phase/block of the build process.
 
