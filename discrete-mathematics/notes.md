@@ -24,5 +24,40 @@ If A and B are two sets, not a single element in A is linked to more than one el
 A strict one to one relation between the elements of set A and B.
 ##### Surjective Function:
 All the elements in B are mapped to atleast one element in set A. Not one element is left unmapped.
-##### Bijective Funcation:
+##### Bijective Function:
 A function is called bijective if it is both injective and surjective. which means all the elements in set B are mapped and it is a one to one mapping. There can be unmapped elements in A but not in B.
+- |X|=|Y| with same cardinality a bijective function can exist.
+- |X|≤|Y| injective function
+- |X|<|Y| cannot be bijective
+- If |X|≤|Y|  and |X|≥|Y| then |X|=|Y| commonly reffered as equivalent sets.
+#### Types Of Sets:
+##### Finite Set:
+A set with definite number of elements. Ex: A = {1,2,3,4}
+##### Infinite Set:
+A set with indefinite number of elements. Ex: A = {x:x∈N, x >10}
+##### Subset:
+If every element of X is present in Y the X is subset of Y denoted as `X⊆Y` Ex: Y = {1,2,3,4,5} and X = {1,2}
+##### Proper Subset:
+Denoted as X⊂Y. X is a proper subset of Y when Y contains every element of X and even more. Ex:Y = {1,2,3,4,5} and X = {1,2}
+##### Universal Set
+This set conatins all the elements in all sets in an application. This is denoted by `U`.
+##### Empty Or Null Set:
+Cardinality zero and denoted by `∅`
+##### Singleton Set or Unit Set:
+With only one element. Cardinality is one. Ex: {8}
+##### Equal Set:
+When X set contains same and equal number of elements as Y the X and Y are equal sets.
+##### Equivalent Set:
+Cardinality of sets X and Y is same but not the same elements.
+##### Overlapping Set:
+Atleast one common element in A and B sets. In case of overlapping sets:
+- n(A∪B)=n(A)+n(B)−n(A∩B) 
+- n(A∪B)=n(A−B)+n(B−A)+n(A∩B)
+- n(A)=n(A−B)+n(A∩B)
+- n(B)=n(B−A)+n(A∩B)
+##### Disjoint Set:
+Not atleast one common element. So
+- n(A∩B)=∅ 
+- n(A∪B)=n(A)+n(B)
+
+
