@@ -88,5 +88,13 @@ A′=(U−A) where U is a universal set
 If A={a,b}  and B={1,2}
 A×B={(a,1),(a,2),(b,1),(b,2)},
 B×A={(1,a),(1,b),(2,a),(2,b)}
+#### Power Set:
+Power set of a set S is the set of all subsets of S including the empty set. The cardinality of a power set of a set S of cardinality n is 2n. Power set is denoted as P(S).
+#### Conditions For Partitioning of a Set:
+- Pi  does not contain the empty set. [Pi≠{∅} for all 0<i≤n]
+- The union of the subsets must equal the entire original set. [P1∪P2∪⋯∪Pn=S]
+- The intersection of any two distinct sets is empty. [Pa∩Pb={∅}, for a≠b where n≥a,b≥0]
+#### Bell Numbers:
+Bell numbers give the count of the number of ways to partition a set. They are denoted by Bn where n is the cardinality of the set.
 
 
