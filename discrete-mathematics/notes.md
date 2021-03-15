@@ -59,5 +59,34 @@ Atleast one common element in A and B sets. In case of overlapping sets:
 Not atleast one common element. So
 - n(A∩B)=∅ 
 - n(A∪B)=n(A)+n(B)
+### Venn Diagrams
+#### Union:
+[<img src="https://www.tutorialspoint.com/discrete_mathematics/images/set_union.jpg">](https://www.tutorialspoint.com/discrete_mathematics/images/set_union.jpg)
+
+A∪B={x|x∈A OR x∈B}
+
+Ex: A={10,11,12,13},B = {13,14,15} and A∪B={10,11,12,13,14,15}
+#### Intersection:
+[<img src="https://www.tutorialspoint.com/discrete_mathematics/images/set_intersection.jpg">](https://www.tutorialspoint.com/discrete_mathematics/images/set_intersection.jpg)
+
+A∩B={x|x∈A AND x∈B}
+
+A={11,12,13}  and B={13,14,15}, then A∩B={13}
+#### Difference/ Relative Complement:
+[<img src="https://www.tutorialspoint.com/discrete_mathematics/images/set_difference.jpg">](https://www.tutorialspoint.com/discrete_mathematics/images/set_difference.jpg)
+
+A−B={x|x∈A AND x∉B}
+
+A={10,11,12,13}  and B={13,14,15}, then (A−B)={10,11,12} and (B−A)={14,15}
+
+#### Complement of a Set:
+A′={x|x∉A}
+
+A′=(U−A) where U is a universal set
+
+#### Cartesian Product / Cross Product:
+If A={a,b}  and B={1,2}
+A×B={(a,1),(a,2),(b,1),(b,2)},
+B×A={(1,a),(1,b),(2,a),(2,b)}
 
 
