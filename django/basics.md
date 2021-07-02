@@ -63,3 +63,18 @@ urlpatterns = [
 ]
 ```
 #### To Run Development Server: *`python manage.py runserver`*
+
+### Templates
+We need to create a folder called *`templates`* inside the sub app/module. inside that we need to create on more folder with the name of the app or the module. This additional folder helps in avoiding naming conflicts when Django merges all the templates from all the modules.
+In `views.py` file we reference the template as follows:
+```python
+from django.http import HttpResponse
+from django.shortcuts import render
+
+# Create your views here.
+
+
+def index(request):
+    return render(request, 'meetups/index.html') #Accepts mainly two paraeters request and the relative path to the template from the templates folder
+```
+
