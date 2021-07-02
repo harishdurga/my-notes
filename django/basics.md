@@ -12,6 +12,20 @@ In Django multiple modules/apps form the overall project or application. For exa
 python manage.py startapp app_name
 ```
 
+
+#### We need to add our app to the list of installed apps in the  `settings.py` file in the main app.
+```python
+INSTALLED_APPS = [
+    'django.contrib.admin',
+    'django.contrib.auth',
+    'django.contrib.contenttypes',
+    'django.contrib.sessions',
+    'django.contrib.messages',
+    'django.contrib.staticfiles',
+    'meetups'
+]
+```
+
 #### views.py
 In `views.py` file is where we define what happens when a url or an endpoint is visited by the end user.
 ```python
@@ -25,3 +39,27 @@ def index(request):
     return HttpResponse('Hello world')
 
 ```
+
+Once the view is ready then we need to connect the view method to the url. This can be done by creating a `urls.py` file in the app folder.
+**Ex:**
+```python
+from django.urls import path
+from . import views
+
+urlpatterns = [
+    path('meetups/', views.index)
+]
+
+```
+Once this is ready, now we have to include these urls into the main application's urls.py file. That can be done as
+```python
+from django.contrib import admin
+from django.urls import path
+from django.urls.conf import include
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('meetups.urls'))
+]
+```
+#### To Run Development Server: *`python manage.py runserver`*
