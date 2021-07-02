@@ -77,4 +77,25 @@ from django.shortcuts import render
 def index(request):
     return render(request, 'meetups/index.html') #Accepts mainly two paraeters request and the relative path to the template from the templates folder
 ```
+In template we use the following syntax to access the dynamic information.
+```python
+  {% myVar %}
+```
 
+
+### Static Files
+We follow the similar file and folder structure to templates. Inside our module we create folder called *`static`* inside that one more folder with the module name to avoid the naming conflicting when Django merges all assets from all the modules in the end. So the file strcuture for static file will be something like the following:
+```
+meetups
+  -static
+    -meetups
+      -js
+        -base.js
+      -styles
+        -base.css
+        
+```
+To reference a static file inside a template:
+```html
+{% load static %}<link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
+```
