@@ -99,3 +99,22 @@ To reference a static file inside a template:
 ```html
 {% load static %}<link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}">
 ```
+
+Dynamic data will be passed to the template file by passing a dictionary as the third parameter for the render function.
+```python
+return render(request, 'meetups/index.html', {
+        'meetups': meetups,
+        'showMeetups': True
+    })
+```
+
+### Django Template Syntax Example:
+```html
+{% if showMeetups %}
+    <ul>
+      {% for meetup in meetups %}
+      <li>{{meetup.title}}</li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+```
