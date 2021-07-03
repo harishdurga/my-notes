@@ -118,3 +118,31 @@ return render(request, 'meetups/index.html', {
     </ul>
     {% endif %}
 ```
+### URL with dynamic route parameter
+```python
+path('meetups/<slug:meetup_slug>', views.meetup_details) #here slug is an optional specifier that tells django that this parameter should needs to be slug format
+```
+This parameter will be automatically passed to the function defined in the views file.
+```python
+def meetup_details(request, meetup_slug):
+    meetup_details = {
+        'title': 'First Meetup',
+        'location': '473  Zimmerman Lane,Los Angeles,CA,California,90017',
+        'description': ''
+    }
+    return render(request, 'meetups/meetup-details.html', {
+        'title': meetup_details['title'],
+        'location': meetup_details['location'],
+        'description': meetup_details['description']})
+```
+### Naming Routes
+We can give names to different urls by passing a named argument to the *`path`* fnction
+```python
+path('meetups/<slug:meetup_slug>',
+         views.meetup_details, name='meetup-details')
+```
+and in template we can write as:
+```html
+<a href="{% url 'meetup-details' meetup.slug %}">More Details</a>
+```
+In the above code after the name of the route we can pass the parameters that the dynamic route expects.
