@@ -146,3 +146,52 @@ and in template we can write as:
 <a href="{% url 'meetup-details' meetup.slug %}">More Details</a>
 ```
 In the above code after the name of the route we can pass the parameters that the dynamic route expects.
+
+### More On Templates
+#### Layouts
+In layout files we define place holders where actual data will be rendered in these placeholders.
+```html
+{% load static %}
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>{% block tiitle %}Meetups{% endblock %}</title>
+    <meta name="description" content="All Meetups" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="{% static 'meetups/styles/base.css' %}" />
+    {% block 'styles' %}{% endblock %}
+  </head>
+  <body>
+    <!--[if lt IE 7]>
+      <p class="browsehappy">
+        You are using an <strong>outdated</strong> browser. Please
+        <a href="#">upgrade your browser</a> to improve your experience.
+      </p>
+    <![endif]-->
+    <header>{% include 'meetups/includes/nav.html'%}</header>
+    <main>{% block 'body' %}{% endblock %}</main>
+    <script src="" async defer></script>
+  </body>
+</html>
+```
+In the above code we have styles,title and body place holders. So in a template file we enlcose the data with similar curly brace syntax with the block name.
+```html
+{% extends 'meetups/layouts/base.html' %} {% block 'title' %}All
+Meetups{%endblock %} {% block 'body' %}
+<div class="container">
+  <h1 class="text-center my-3">Upcoming Meetups</h1>
+</div>
+{% endblock %}
+```
+To include a partial into a template
+```html
+{%  include 'path/to/partial.html with location='hello world' name='my name' %} //Here we can pass data to the partial by passing it with `with` after the path to the partial file
+```
+
+
