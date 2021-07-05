@@ -194,4 +194,13 @@ To include a partial into a template
 {%  include 'path/to/partial.html with location='hello world' name='my name' %} //Here we can pass data to the partial by passing it with `with` after the path to the partial file
 ```
 
+### Models
+A model can be created in the `models.py` file.
+```python
+class Meetup(models.Model):
+    title = models.CharField(max_length=200) #based on the definition of these properties Django will automatically generate migrations
+    slug = models.SlugField(unique=True)
+    description = models.TextField()
+```
+To generate migration from the model class definition : `python manage.py makemigrations`. To run the generated migrations: `python manage.py migrate`
 
