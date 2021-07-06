@@ -237,3 +237,9 @@ urlpatterns = [
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 ```
 The static function here attaches the media url to the existing urls and specifies the document root of the files.
+
+### Few ORM Queries
+```python
+Meetup.objects.all() # Fetches all meetup objects from database
+Meetup.objects.get(slug=meetup_slug) #Fetch a single meetup object from database as per slug
+```
