@@ -243,3 +243,16 @@ The static function here attaches the media url to the existing urls and specifi
 Meetup.objects.all() # Fetches all meetup objects from database
 Meetup.objects.get(slug=meetup_slug) #Fetch a single meetup object from database as per slug
 ```
+
+### Configuring Admin Panel
+The admin panel can be configured in a lot of ways. for example in  `admin.py` file
+```python
+class MeetupAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug') #These colums will be displayed in the list view
+    list_filter = ('title',) #a filter will be created on this field
+    prepopulated_fields = {'slug': ('title',)} # the value of slug field will be filled based on the value of fields specified in the tuble.
+
+
+admin.site.register(Meetup, MeetupAdmin)
+```
+In this code we created a class and inherited ModelAdmin class from the admin module imported. Then we are setting the `list_display`,`list_filter`,`prepopulated_fields` proerties.
