@@ -204,3 +204,15 @@ class Meetup(models.Model):
 ```
 To generate migration from the model class definition : `python manage.py makemigrations`. To run the generated migrations: `python manage.py migrate`
 
+### Admin Panel
+Django comes with an admin panel from where we can manage certain things about the application. 
+A super user can be created by executing the following command `python manage.py createsuperuser`.
+To add a model to the admin site and manage it from there in the `admin.py` file we have to register it as follows:
+```python
+from django.contrib import admin
+
+# Register your models here.
+from .models import Meetup
+
+admin.site.register(Meetup)
+```
