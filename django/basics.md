@@ -216,3 +216,24 @@ from .models import Meetup
 
 admin.site.register(Meetup)
 ```
+### The Image Field
+Django has an image field which will do a lot of background work. This field will look like a file picker in the admin ui where the file will be uploaded and saved at the selected location.
+```python
+image = models.ImageField(upload_to='images')
+```
+For this this to work we need few other things. in `settings.py` we need to add the following two variables.
+```python
+MEDIA_ROOT = BASE_DIR / 'uploads' #This value tells the django where to store the files on the hardrive
+MEDIA_URL = '/files/ #This value tells django how the files will be served. We will be linking these two things together.
+```
+in the main `urls.py` file we add the following
+```python
+from django.conf.urls.static import static
+from django.conf import settings
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('meetups.urls'))
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+```
+The static function here attaches the media url to the existing urls and specifies the document root of the files.
