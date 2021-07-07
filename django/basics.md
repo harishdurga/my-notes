@@ -282,4 +282,26 @@ class Meetup(models.Model):
 ```
 Django will automatically creates a separate table to map this many to many relation between these two models. By setting `blank=True` we can leave this field blank in the admin form.
 
+### Model Form
+To create a model form first the `forms.py` file needs to be created in the module. In that file
+```python
+from django import forms
+from .models import Participant
 
+
+class RegistrationForm(forms.ModelForm):
+    class Meta: #nested class
+        model = Participant #Model class to be used for the form to be built
+        fields = ['email'] #We can specify the fields which can be presented in the form from the model class.
+```
+To render this form in the template, in the `views.py` file we instantiate the form class as
+```python
+form = RegistrationForm()
+```
+then in the tempalte file
+```html
+<form method="POST">
+    {{ form.as_ul }} // also we can use as_p method here instead of the as_ul
+    <button class="btn btn-primary">Submit</button>
+  </form>
+```
