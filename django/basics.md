@@ -256,3 +256,30 @@ class MeetupAdmin(admin.ModelAdmin):
 admin.site.register(Meetup, MeetupAdmin)
 ```
 In this code we created a class and inherited ModelAdmin class from the admin module imported. Then we are setting the `list_display`,`list_filter`,`prepopulated_fields` proerties.
+
+
+### Model Relationships
+To establish a relationship between model we use the foriegn key property of Django model.
+```python
+class Meetup(models.Model):
+    title = models.CharField(max_length=200)
+    slug = models.SlugField(unique=True)
+    description = models.TextField()
+    image = models.ImageField(upload_to='images')
+    location = models.ForeignKey(
+        Location, null=True, on_delete=models.SET_NULL) #The ForeignKey takes the model to be related as the first argument
+```
+#### Many To Many Relationship
+```python
+class Participant(models.Model):
+    email = models.EmailField(unique=True)
+
+    def __str__(self):
+        return self.email
+class Meetup(models.Model):
+    ...
+    participants = models.ManyToManyField(Participant, blank=True, null=True)        
+```
+Django will automatically creates a separate table to map this many to many relation between these two models. By setting `blank=True` we can leave this field blank in the admin form.
+
+
