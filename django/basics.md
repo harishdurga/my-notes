@@ -305,3 +305,18 @@ then in the tempalte file
     <button class="btn btn-primary">Submit</button>
   </form>
 ```
+### Form Class
+Instead of using the ModelForm we can use the Form class. In this we have to define all the fields and their expected values.
+```python
+from django import forms
+
+
+class RegistrationForm(forms.Form):
+    email = forms.EmailField(label="Your Email")
+```
+So in the view we can use the following code to validate and access the form data.
+```python
+form = RegistrationForm(request.POST)
+            if form.is_valid():
+                user_email = form.cleaned_data['email'] #cleaned_data data will give access to a dictonary of form data
+```
