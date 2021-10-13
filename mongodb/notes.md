@@ -25,3 +25,7 @@ A document can have another document upto maximum of 100 levels and with max lim
 - Embedded Document
 - Array
 
+### Relations Between Data
+- Embedded document: Suited for one to one relationship
+- Reference: One to many, many to one and many to many
+
