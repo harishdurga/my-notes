@@ -29,3 +29,6 @@ A document can have another document upto maximum of 100 levels and with max lim
 - Embedded document: Suited for one to one relationship
 - Reference: One to many, many to one and many to many
 
+### Schema Validation
+In schema validation we can specify two things. Level of validation(strict and moderate) and Validation action (what to do when validation fails).
+In strict mode all insert and updates will get validated where as in moderate mode all inserts and update to correct documents will be validated.
