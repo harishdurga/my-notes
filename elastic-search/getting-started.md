@@ -44,3 +44,15 @@ The v is a flag to indicate for a more detailed response.
 | 10.46.160.117 | 30 | 65 | 1 | 1.51 | 1.83 | 1.74 | himrst | - | instance-0000000000 |
 | 10.46.160.25 | 61 | 86 | 0 | 0.58 | 0.58 | 0.54 | mv | - | tiebreaker-0000000002 |
 | 10.46.160.115 | 62 | 67 | 1 | 0.75 | 1.19 | 1.18 | himrst | * | instance-0000000001 |
+
+## List All Indices
+The command is:
+```bash
+GET _cat/indices?v&expand_wildcards=all
+```
+This will list all indices including system indices which will be used by the ES and Kibana.
+#### Response:
+| health | status | index | pri | rep | docs.count | docs.deleted | store.size | pri.store.size |
+| ------ | ------ | ----- | --- | --- | ---------- | ------------ | ---------- | -------------- |
+| green | open | .ent-search-actastic-workplace_search_pre_content_sources_v3-context-workplace_search_account_id-service_type-unique-constraint | Yx6RmkETTkazVt3bLpdZNg | 1 | 1 | 0 | 0 | 450b | 225b |
+The `expand_wildcards=all` makes the command return systme indices as well which starts with a `.`.
