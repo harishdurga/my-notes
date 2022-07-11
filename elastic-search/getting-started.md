@@ -32,3 +32,15 @@ APIs are started with _ by convention.
   "active_shards_percent_as_number": 100
 }
 ```
+## List Nodes In The Cluster
+The command is:
+```bash
+GET _cat/nodes?v
+```
+The v is a flag to indicate for a more detailed response.
+#### Response
+| ip | heap.percent | ram.percent | cpu | load_1m | load_5m | load_15m | node.role | master | name |
+| -- | ------------ | ----------- | --- | ------- | ------- | -------- | --------- | ------ | ---- |
+| 10.46.160.117 | 30 | 65 | 1 | 1.51 | 1.83 | 1.74 | himrst | - | instance-0000000000 |
+| 10.46.160.25 | 61 | 86 | 0 | 0.58 | 0.58 | 0.54 | mv | - | tiebreaker-0000000002 |
+| 10.46.160.115 | 62 | 67 | 1 | 0.75 | 1.19 | 1.18 | himrst | * | instance-0000000001 |
