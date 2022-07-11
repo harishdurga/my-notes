@@ -55,4 +55,5 @@ This will list all indices including system indices which will be used by the ES
 | health | status | index | pri | rep | docs.count | docs.deleted | store.size | pri.store.size |
 | ------ | ------ | ----- | --- | --- | ---------- | ------------ | ---------- | -------------- |
 | green | open | .ent-search-actastic-workplace_search_pre_content_sources_v3-context-workplace_search_account_id-service_type-unique-constraint | Yx6RmkETTkazVt3bLpdZNg | 1 | 1 | 0 | 0 | 450b | 225b |
+
 The `expand_wildcards=all` makes the command return systme indices as well which starts with a `.`.
