@@ -236,3 +236,21 @@ A replication group called A which is composed of one primary shard and two repl
 Now when the primary shard went down, one of the remaining replica shards made primary shard. Every document has one property called `_primary_term` which indicates the shard that is acting as primary shard during operation of the document. When there was a change in the primary shard then ES upddates the `_primary_term` for the replication group. Also every document has `_seq_no` property whihc is like a counter indicating the sequence number for the write operation of the document. Also there are global check points common for replication group, local checkpoints for each shard. Using all these the shards will keep the data in sync within the replication group.
 
 For example if the global checkpoint(sequence number) for a replication group is 100 then all the local checkpoints should be atleast 100. If the local checkpoint of shard B is 150 and checkpoint of C is 100 which is acting as primary shard then the Shard C will sync all the documents with suequence number greater than 100 till 150 to be in sync with Shard B which is acting as replica.
+
+## Document Versioning (Legacy)
+Document versioning is used to determine how many times a document is updated. There are two types of versioning available. internal and external. In the internal versioning only the version number will be stored but not the actual document history. But in case of external versioning ES stores history of the document with specified version number which will be a natural number.
+
+## Optimistic Concurrency Control
+This process is used to prevent old data replacing new data. or handle issues with concurrent read, write operations. In the legacy ES `_version` is being used. But now ES uses `_primary_term` and `_seq_no` properties.
+```bash
+POST /<index_name>/_update/1?if_primary_term=1&if_seq_no=6
+{
+  "doc": {
+    "aval_qty":140
+  }
+}
+```
+If we face an error about version conflict we have to read the document again and use the latest `_primary_term` and `_seq_no`.
+
+
+
