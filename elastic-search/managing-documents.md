@@ -140,3 +140,21 @@ POST /<index_name>/_update/<_id>
 - ES documents are immutable. So how the update is working? ES is not actually updaing the existing document but replacing it with the same `_id`. First the ES will fetch the document into memory and apply the updates and replaces the current one with the updated doc in memory keeping the same `_id`.
 - the `result` property from the response informs what operation has happened. **updated**: means the document updated, **noop**: no operation performed.
 
+### Scripted Updates
+Sometimes we want to update the document when certain conditions are met, or in other case we want to update the document with reading it first.
+```bash
+POST /<index_name>/_update/<_id>
+{
+  "script": {
+    "source": """
+      if(ctx._source.aval_qty < 500 ){
+        ctx._source.aval_qty += params.add_qty    
+      }
+    """,
+    "params": {
+      "add_qty":100
+    }
+  }
+}
+```
+In the above example we are checking if the available quantity of the product is less than 500, then add additional quantity of 100 to the what ever the value of avilable quantity property. the `ctx` represents the current document in the context.
