@@ -158,3 +158,32 @@ POST /<index_name>/_update/<_id>
 }
 ```
 In the above example we are checking if the available quantity of the product is less than 500, then add additional quantity of 100 to the what ever the value of avilable quantity property. the `ctx` represents the current document in the context.
+
+### Upserts
+If ES didn't find a document with the given ID then a new document will be created.
+```bash
+POST /<index_name>/_update/<_id>
+{
+  "script": {
+    "source": """
+      if(ctx._source.aval_qty < 500 ){
+        ctx._source.aval_qty += params.add_qty    
+      }
+    """,
+    "params": {
+      "add_qty":100
+    }
+  },
+  "upsert": {
+    "name":"Blue Marker",
+    "price":300,
+    "aval_qty":150,
+    "attrs":{
+      "color":"Blue",
+      "brand":"Camel",
+      "size":"L"
+    }
+  }
+}
+```
+If the ES found a document with the given id then the `script` will be executed the result will be `updated`. If a document is not found with the given id then the `upsert` property will be executed and a new document will be indexed. and the result will be `created`.
