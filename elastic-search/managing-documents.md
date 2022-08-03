@@ -220,3 +220,19 @@ This is the routing formula ES uses to determine to/from which shard the documen
 2. Then the coordinator node uses routing function to figure out the replication group to look up.
 3. ES uses ARS(Adaptive Replica Selection) technique to figure out which shard is best suited for serving the current read request.
 4. Once the coordinating node get to know which shard, then the coordinating note reads the document from the shard and returns it to the client.
+
+## How ES Writes Documents
+1. Coordinator node receives the write request.
+2. Uses routing to determine the replication group.
+3. Sends the write request to the primary shard in the replication group which will validate the request and writes the request locally before parallelly writing request to the other replica shards in the replication group. Operation will be success even when the write operation to replica shards failed.
+
+### Handling Failures At Write Time
+Each replica groups needs a primary shard at all times.
+
+**Example for a failure scenario**
+```
+A replication group called A which is composed of one primary shard and two replica shards. Now a documented got indexed locally in primary shard and written to one of the replication shard. But the primary shard went down due to some infrastrcuture issue and the document didn't get write to the second shard.
+```
+Now when the primary shard went down, one of the remaining replica shards made primary shard. Every document has one property called `_primary_term` which indicates the shard that is acting as primary shard during operation of the document. When there was a change in the primary shard then ES upddates the `_primary_term` for the replication group. Also every document has `_seq_no` property whihc is like a counter indicating the sequence number for the write operation of the document. Also there are global check points common for replication group, local checkpoints for each shard. Using all these the shards will keep the data in sync within the replication group.
+
+For example if the global checkpoint(sequence number) for a replication group is 100 then all the local checkpoints should be atleast 100. If the local checkpoint of shard B is 150 and checkpoint of C is 100 which is acting as primary shard then the Shard C will sync all the documents with suequence number greater than 100 till 150 to be in sync with Shard B which is acting as replica.
