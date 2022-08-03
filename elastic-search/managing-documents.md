@@ -120,6 +120,23 @@ POST /<index_name>/_update/<_id>
   }
 }
 ```
+#### Response:
+```json
+{
+  "_index": "products",
+  "_id": "sDqUYoIBeKcjnN9MdCUx",
+  "_version": 2,
+  "result": "updated",
+  "_shards": {
+    "total": 2,
+    "successful": 1,
+    "failed": 0
+  },
+  "_seq_no": 1,
+  "_primary_term": 1
+}
+```
 ### :information_source:
-- ES documents are immutable. 
+- ES documents are immutable. So how the update is working? ES is not actually updaing the existing document but replacing it with the same `_id`. First the ES will fetch the document into memory and apply the updates and replaces the current one with the updated doc in memory keeping the same `_id`.
+- the `result` property from the response informs what operation has happened. **updated**: means the document updated, **noop**: no operation performed.
 
