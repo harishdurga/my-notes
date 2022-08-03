@@ -214,3 +214,9 @@ The process of resolving a shard for a document is called routing.
 shard_num = hash(_routing) % num_primary_shards
 ```
 This is the routing formula ES uses to determine to/from which shard the document to be stored/read. As this formula depends on the number of shards, it is not allowed to change the number of shards for a given index once it is created as by changing the number of shards it will become difficult to search existing documents. By default ES uses the `_id` as the `_routing`. We can change the routing function but we have to make sure that the function we are writing is distributing documents evenly over all the shards.
+
+## How ES Reads Documents
+1. First a coordinator node receives the read request.
+2. Then the coordinator node uses routing function to figure out the replication group to look up.
+3. ES uses ARS(Adaptive Replica Selection) technique to figure out which shard is best suited for serving the current read request.
+4. Once the coordinating node get to know which shard, then the coordinating note reads the document from the shard and returns it to the client.
