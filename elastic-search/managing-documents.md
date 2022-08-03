@@ -110,3 +110,16 @@ GET /<index_name>/_doc/<id>
 - The actual document will be inside the `_source` property.
 - The found property will indicate if a document is found by the id we are trying to fetch with. True if found false otherwise.
 
+### Updating A Document By ID
+```bash
+POST /<index_name>/_update/<_id>
+{
+  "doc":{
+    "aval_qty":300,
+    "discount":0.0
+  }
+}
+```
+### :information_source:
+- ES documents are immutable. 
+
