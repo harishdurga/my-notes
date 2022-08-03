@@ -1,4 +1,4 @@
-## Managing Documents
+# Managing Documents
 
 ### Creating An Index With Default Options
 ```bash
@@ -207,3 +207,10 @@ POST /<index_name>/_doc/<_id>
 ```bash
 DELETE /<index_name/_doc/<_id>
 ```
+
+## Routing
+The process of resolving a shard for a document is called routing.
+```
+shard_num = hash(_routing) % num_primary_shards
+```
+This is the routing formula ES uses to determine to/from which shard the document to be stored/read. As this formula depends on the number of shards, it is not allowed to change the number of shards for a given index once it is created as by changing the number of shards it will become difficult to search existing documents. By default ES uses the `_id` as the `_routing`. We can change the routing function but we have to make sure that the function we are writing is distributing documents evenly over all the shards.
