@@ -187,3 +187,23 @@ POST /<index_name>/_update/<_id>
 }
 ```
 If the ES found a document with the given id then the `script` will be executed the result will be `updated`. If a document is not found with the given id then the `upsert` property will be executed and a new document will be indexed. and the result will be `created`.
+
+### Replacing Documents
+All the previous data of the document will be replaced by the current data.
+```bash
+POST /<index_name>/_doc/<_id>
+{
+  "name":"Red Marker",
+  "price":250.75,
+  "aval_qty":250,
+  "attrs":{
+    "color":"red",
+    "brand":"Camel",
+    "size":"L"
+  }
+}
+```
+### Deleting A Document
+```bash
+DELETE /<index_name/_doc/<_id>
+```
