@@ -276,4 +276,32 @@ POST /<index_name>/_update_by_query
 - **More on snapshot**: For example we have a product whose avilable quantity is 10 at the time of taking the snapshot. With the update query we are trying to change it to 50. But in between due to some other update operation the quantity go changed to 8. When the current update query tries to change the quantity to 50, it first check if the values is same as in the snapshot. If it's not then the current update query fails. We have to make changes to the update query as per the current quanity and try again. In practice ES uses primary_term, sequence_no and versioning to achieve conncurency control.
 - But if we specify `"conflicts":"proceed"` then the version conflicts will be ignored and quantity will be updated.
 
-
+## Delete By Query
+```bash
+POST /<index_name>/_delete_by_query
+{
+  "query":{
+    "match_all":{}
+  }
+}
+```
+#### Response
+```json
+{
+  "took": 153,
+  "timed_out": false,
+  "total": 2,
+  "deleted": 2,
+  "batches": 1,
+  "version_conflicts": 0,
+  "noops": 0,
+  "retries": {
+    "bulk": 0,
+    "search": 0
+  },
+  "throttled_millis": 0,
+  "requests_per_second": -1,
+  "throttled_until_millis": 0,
+  "failures": []
+}
+```
