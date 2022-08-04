@@ -252,5 +252,28 @@ POST /<index_name>/_update/1?if_primary_term=1&if_seq_no=6
 ```
 If we face an error about version conflict we have to read the document again and use the latest `_primary_term` and `_seq_no`.
 
+## Update Document By Query (Just Overview)
+```bash
+POST /<index_name>/_update_by_query
+{
+  "conflicts": "proceed", 
+  "query": {
+    "match_all": {}
+  },
+  "script": {
+    "source": "SCRIPT GOES HERE",
+    "lang": "painless"
+  }
+}
+```
+**Background**
+- Coordinator node will receive the update by query request
+- Then ES will take a snapshot of the index
+- Once the snapshot has taken, the coordinator will send a search query to all of the replication groups of the index to find out all the shards that contains the mathcing documents and needs to be updated.
+- Then a bulk update request is sent to all the matching groups. The search and update happens in pair and sequentially. That is only one RG will be updated at a given time. But if the update fails then all the update operations to remaining RGs will also fail. ES uses `Scroll API` to go through the result sets. 
+- One thing to remember is that this process of updating documents is not transactional. The shards whose documents are updated remains updated even thorugh the rest of the update operation failes.
+- When an update query failes ES will retry upto 10 times by default before aborting. The no of retries can be configured.
+- **More on snapshot**: For example we have a product whose avilable quantity is 10 at the time of taking the snapshot. With the update query we are trying to change it to 50. But in between due to some other update operation the quantity go changed to 8. When the current update query tries to change the quantity to 50, it first check if the values is same as in the snapshot. If it's not then the current update query fails. We have to make changes to the update query as per the current quanity and try again. In practice ES uses primary_term, sequence_no and versioning to achieve conncurency control.
+- But if we specify `"conflicts":"proceed"` then the version conflicts will be ignored and quantity will be updated.
 
 
