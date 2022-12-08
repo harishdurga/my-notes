@@ -92,3 +92,51 @@ POST _analyze
   ]
 }
 ```
+### Inverted Indices
+These are maps with `Terms(Tokens in the context of Analyser)` as the keys and which documents that contain these terms as the field values. Every field in a document will have its own Inverted index. For example consider the following document
+```json
+{
+  "_id":1  
+  "title":"Greeting",
+  "message":"Happy new year welcome to year 2023"
+}
+{
+  "_id":3  
+  "title":"Greeting",
+  "message":"Happy Birthday"
+}
+
+{
+  "_id":2  
+  "title":"Reminder",
+  "message":"Don't forget to wish on the last day"
+}
+```
+We will have two separate inverted indexes one for each field `title` and `description`.
+For ref.
+#### title
+| Term     | Document Id |
+|----------|-------------|
+| greeting | 1,2         |
+| reminder | 2           |
+
+#### description
+| Term     | Document Id |
+|----------|-------------|
+| happy    | 1,3         |
+| new      | 1           |
+| year     | 1           |
+| welcome  | 1           |
+| to       | 1,2         |
+| year     | 1           |
+| 2023     | 1           |
+| birthday | 3           |
+| don't    | 2           |
+| forget   | 2           |
+| wish     | 2           |
+| on       | 2           |
+| the      | 2           |
+| last     | 2           |
+| day      | 2           |
+
+Apart from document these inverted indices also contain other data like relavance score etc. Datatypes other than text are stored in other types of data structures.
