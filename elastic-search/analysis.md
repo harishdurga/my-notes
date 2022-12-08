@@ -140,3 +140,35 @@ For ref.
 | day      | 2           |
 
 Apart from document these inverted indices also contain other data like relavance score etc. Datatypes other than text are stored in other types of data structures.
+
+### Mapping
+Mapping is similar to defining the schema for a table in SQL. We define the field and the types of the document. Mapping can be explicit or dynamic or both combined.
+
+### Data Types
+[All Supported Data Types](https://www.elastic.co/guide/en/elasticsearch/reference/current/mapping-types.html)
+
+#### Object
+Every Json document is an Object. But objects are stored differently with ES as the underlysing Apache Lucene doesn't support nested objects. So elastic search will flatten the object.
+Ex:
+```json
+{
+    "name":"John Doe",
+    "address":{
+        "pincode":"530000",
+        "door_no":"1-1-1",
+        "city":"KPP"
+    }
+}
+```
+The above object will be stored as 
+```json
+{
+    "name":"John Doe",
+    "address.pincode":"530000",
+    "address.door_no":"1-1-1",
+    "address.city":"KPP"
+}
+```
+#### Keyword
+Where we will be looking for exact match. Used for filtering, sorting and aggregations. Ex: Published Status: PUBLISHED,DRAFT,SUSPENDED etc..
+
