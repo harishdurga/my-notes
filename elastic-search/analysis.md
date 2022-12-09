@@ -171,4 +171,48 @@ The above object will be stored as
 ```
 #### Keyword
 Where we will be looking for exact match. Used for filtering, sorting and aggregations. Ex: Published Status: PUBLISHED,DRAFT,SUSPENDED etc..
+When a field is defined of type `keyword` then ES won't apply any filters or transformations. If we define a sentence as a keyword then the Analyser will yield the entire sentence as a single term and won't split it.
+
+The `keyword` analyser is a no-op analyser.
+
+
+### Type Coercion
+When we index the first document ES will automatically map the field data types. For example:
+```json
+{
+    "_id":1
+    "price":7.4
+}
+```
+So ES maps the field `price` to float. And in another document if it recieves a value "7.4", ES will try to convert this value into a float. But if it fails in doing so an error will be thrown while indexing.Ex: "7.4INR". We can switch the type coercion off. Enabled by default.
+
+### Understanding Arrays
+- All the elements inside the array should be of same type. or be coerced if enabled.
+- When being analysed the text elements in an array will be merged with space separated when creating terms.
+- array of objects needs to be specified as nested type inorder to query individual objects.
+- array of arrays will be flatned to a single array.
+
+
+### Adding Explicit Mappings
+Adding mapping during index creation. Ex:
+```bash
+PUT /customers
+{
+    "mappings":{
+        "properties":{
+            "first_name":{"type":"text"},
+            "last_name":{"type":"text"},
+            "email":{"type":"keyword"},
+            "address":{
+                "properties":{
+                    "door_no":{"type":"text"},
+                    "area":{"type":"text"},
+                    "city":{"type":"text"},
+                    "pincode":{"type":"integer"}
+                }
+            }
+        }
+    }
+}
+```
 
