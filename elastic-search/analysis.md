@@ -216,3 +216,40 @@ PUT /customers
 }
 ```
 
+### Retreive Mappings
+Get Index mapping
+```bash
+GET /customers/_mappings
+```
+Get mapping of a single field
+```bash
+GET /customers/_mapping/field/first_name
+```
+Output:
+```json
+{
+  "customers": {
+    "mappings": {
+      "first_name": {
+        "full_name": "first_name",
+        "mapping": {
+          "first_name": {
+            "type": "text"
+          }
+        }
+      }
+    }
+  }
+}
+```
+
+### Adding Mapping To An Existing Index
+```bash
+PUT /customers/_mapping
+{
+  "properties":{
+    "created_at":{"type":"date"},
+    "updated_at":{"type":"date"}
+  }
+}
+```
