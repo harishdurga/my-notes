@@ -32,3 +32,8 @@ graph TD
 ```
 Any application can be deployed across multiple zones for app redundacy. Some of the services can also be deployed across different regions so that app can be 
 accessible even when the one of the region is down.
+<blockquote>
+    GCP has around 103 zones and 34 regions. We can find the upto date info on locations at <a href="cloud.google.com/about/locations">cloud.google.com/about/locations</a> 
+</blockquote>
+
+
