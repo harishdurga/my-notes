@@ -73,4 +73,12 @@ Google provides layered security for the data centers.
 
 <blockquote>Learn more at <a href="cloud.google.com/security/security-design">cloud.google.com/security/security-design</a></blockquote>
 
+### Billing
+Google provides usage per second billing.
+<blockquote>Billing calculator can be found at <a href="cloud.google.com/proucts/calcuator">cloud.google.com/proucts/calcuator</a></blockquote>
+We can set alters for billing when usage or budget reaches a certain limit. Also Google provides quotas to save owners from generating huge bills ecause of an attack or an error in the applcation. GCP provides two quotas.
+- Rate Quota: For example pegging the number of API calls to a service upto a certain limit.
+- Allocation Quota: Limiting the resource allocation to the application to a certain maximum limit. Ex: Allocate max of 8 GB Ram comsumption.
+
+
 
