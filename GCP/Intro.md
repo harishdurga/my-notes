@@ -44,3 +44,33 @@ ES supports three formats
 
 By default UTC timezone is assumed and date must be formatted according to ISO 8601 spec
 
+
+### Security For Customer Data
+Google provides layered security for the data centers.
+#### Hardware Infrastructure Layer
+- Hardware(Boards, networking equipment, Hardware security chip) is custom designed by Google.
+- Secure boot stack: Checking cryptographic signatures of files, kernels and other softwares to ensure the server is booting the secure software
+- Premises security
+
+#### Service Deployment Layer
+- Encryption of inter-service communication using RPC with Harware accelerated encryption
+
+#### User Identity Layer
+- Second factor auth
+
+#### Storage Services Layer
+ - Encryption at rest
+
+#### Intercommunication Layer
+- Google Front End(GFE)
+- DDOS Protection
+
+#### Operational Security Layer
+- Intrusion detection
+- Reducing insider risk
+- Employee Universal Second factor auth
+- Software development practices
+
+<blockquote>Learn more at <a href="cloud.google.com/security/security-design">cloud.google.com/security/security-design</a></blockquote>
+
+
