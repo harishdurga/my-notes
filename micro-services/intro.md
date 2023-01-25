@@ -18,3 +18,24 @@ graph TD;
 - Monitoring
 - Health Checks
 - Common business logic(!)
+## Whether to Extract Common Functionality Into Library or Microservice?
+### Shared Library
+ - Simple
+ - Low performance impact
+ - Cannot be polyglot
+ - Increased coupling
+
+### Separate Microservice
+- Reduced coupling
+- Support Polygllot development
+- Impacts performance
+- Increases complexity
+
+### Hybrid Approach
+- Reduced Shared business logic
+- Let proxy handle - Network config, Distributed tracing, Auth, Security
+- Using polyglot libraries where possible
+
+## Ideal Environment for microservices
+
+
