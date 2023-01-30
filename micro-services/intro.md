@@ -37,5 +37,29 @@ graph TD;
 - Using polyglot libraries where possible
 
 ## Ideal Environment for microservices
+### Configuration
+- Externalize all configuration to env vars, cmd line args, files(Yaml,toml etc..)
+- feed configs from config maps
+- seprate senstive config
+- feed sensitive config from secrets
+- Use the downward API
+### Deployment
+- Use helm for deploying the app
+- Use the same Dockerfile for all environments
+- Use the same Docker image for all environments
+
+Docker Image Tips
+- Build small tips (alpine,slim)
+- Use a TCK-verified JVM image (Azul Zulu is good)
+- Use **tini** to reap zombie processes
+- Do not run as root
+- Ex tools: Distroless
+
+### Graceful Shutdown
+- Ensure your app recives SIGTERM
+- Catch SIGTERM
+- Wait for all incoming connections to die
+- Gracefully close all long-lived connections (DB connection pools)
+- Exit app
 
 
