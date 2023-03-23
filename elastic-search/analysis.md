@@ -253,3 +253,9 @@ PUT /customers/_mapping
   }
 }
 ```
+
+> **Warning**
+> 
+> Once documents are indexed into an index field type mapping cannot be changed. But field mappings can updated in an empty index. 
+
+
