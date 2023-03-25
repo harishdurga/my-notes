@@ -175,4 +175,3 @@ PUT /sales
 ```
 The value of the full_name/target field won't be a part of the `_source`. 
 
-
