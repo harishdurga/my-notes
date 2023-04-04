@@ -46,4 +46,21 @@ Overall, these three types of architects work together to ensure that the SaaS a
 
 Architect designs a system keeping these requirements in mind using optimal tech stack and methods.
 
+## The Architecture Process
+```mermaid
+graph TD;
+    A(Understand System Requirements)-->B(Understand The Non Functional Requirements);
+    B-->C(Map the Components);
+    C-->D(Select The Technology Stack);
+    D-->E(Design The Architecture);
+    E-->F(Write Architecture Document);
+    F-->G(Support The Team)
+```
 
+- Requirements = What System Should Do, Defined by system analyst
+- Non functional Requirements = No of users, loads,volumes, performance impact
+- Mapping the components = Tasks of the system
+- Selection of technology stack = 
+- Designing the Architecture
+- Writing the Architecture Document = Describes the architecture and process, must be relavant to all parties.
+- Support the team
