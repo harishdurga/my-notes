@@ -64,3 +64,44 @@ graph TD;
 - Designing the Architecture
 - Writing the Architecture Document = Describes the architecture and process, must be relavant to all parties.
 - Support the team
+
+## Types Of Requirements
+What the system should do?
+### Functional Requirements
+Ex: 
+- business flows
+- business services
+- User interfaces
+
+### Non Functional Requirements
+What should the system deal with?
+Ex:
+- Performance
+- Load
+- Data Volume
+- Concurrent users
+- SLA
+
+### More On Non Functional Requirements
+#### Performance
+- Always talk in numbers: fast is relative. In some cases it will be in milliseconds or in seconds
+- Latency: time the system take to perform a single operation
+- Throughput: how many operations that the system can perform in a given timeframe
+- Load: Quantity of work without crashing
+#### Data Volume
+- How much data the system will accumulate over time
+- Helps with: Deciding database type, designing queries, storage planning
+- Two aspects: Data required on data one, data growth rate
+#### Concurrent Users
+How many users going to use the application including dead times
+Concurrent Users = Load X 10
+#### SLA(Service Level Agreement)
+- Required uptime for the system
+- Some system need to keep on running even though while they are running
+
+> ## Never start working before setting the non functional requirements
+
+
+
+
+
