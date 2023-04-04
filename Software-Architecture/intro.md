@@ -37,3 +37,13 @@ The software architect would be responsible for designing the software applicati
 
 
 Overall, these three types of architects work together to ensure that the SaaS application is well-designed, well-implemented, and well-supported. They help to ensure that the application is reliable, scalable, and secure, and that it can meet the needs of the company's customers.
+
+### Baseline Requirements Of Any Project
+- Fast
+- Secure
+- Reliable
+- Easy to maintain
+
+Architect designs a system keeping these requirements in mind using optimal tech stack and methods.
+
+
