@@ -145,6 +145,17 @@ Determining the type of the application will be after finalising the requirement
 - Data can be temporarily inconsistent
 - No standard for accessing data as each db has it's own way
 
-
+## Quality Attributes
+Technical capabilities that should be used in order to fulfill the non-functional requirements
+### Relationship between Non-Functional Requirements, Quality Attributes And System Design
+Non-Functional Requirements:What the system should deal with --> Quality Attributes --> Architecture
+- Scalability: Adding computing resources without any interruption
+    - Scale Up is not preferred and Scale Out is preferred as it offers redudancy. Scale Out always have a load balancer 
+- Manageability: Know what's going and act accordingly
+- Modularity: Easy of making changes without effecting other parts of the system.
+- Extensibility: A system that's functionality can be extended without modifying the existing code
+- Testability: How easy is it to test the application?
+    - Independent modules and methods
+    - Single responsibility 
 
 
