@@ -125,6 +125,26 @@ Determining the type of the application will be after finalising the requirement
 - Function As A Service: Ex: AWS Lambda    
 
 
+## Selection Of Technology Stack
+### Considerations While Selecting A Stack
+ - Can perform required task
+ - Community Support
+ - Popularity
+### Backend Stack
+### Data Store Technology
+#### SQL
+- Atomic Set Of Actions
+- ACID: Atomicity, Consistency, Isolation, Durability
+- SQL Language
+
+#### NO SQL
+- Emphasis on scale and performance
+- Schema-less
+- Data usually stored in JSON format
+- Eventual Consistency
+- Data can be temporarily inconsistent
+- No standard for accessing data as each db has it's own way
+
 
 
 
