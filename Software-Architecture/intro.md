@@ -101,6 +101,29 @@ Concurrent Users = Load X 10
 
 > ## Never start working before setting the non functional requirements
 
+## Application Types
+Determining the type of the application will be after finalising the requirements
+- Web App : Website and webserver
+    - User interface, user initiated actions,Large scale, Short,Focused Actions
+    - Request Response based
+- Web API: Clients are not just browsers. Communication is in JSON or other forms
+    - REST API
+    - Data Retrieval And Store
+    - Client Intiated Actions
+    - Large Scale
+    - Short Focused Action
+    - Request Response based
+- Mobile Apps: Run on smart phones.
+- Console Apps: Command line applications.
+    - No Fancy UI
+    - Limited Interaction
+    - Long or Short running processes
+- Services: NO UI at all
+    - Managed by service manager of the OS
+    - Long running processes
+- Desktop Apps:
+- Function As A Service: Ex: AWS Lambda    
+
 
 
 
