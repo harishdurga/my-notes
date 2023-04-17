@@ -181,6 +181,5 @@ Non-Functional Requirements:What the system should deal with --> Quality Attribu
     - Use try catch on the smallest code fragments possible
 - Logging
     - Track errors
-    - Gather Data     
-
+    - Gather Data
      
