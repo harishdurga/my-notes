@@ -158,4 +158,29 @@ Non-Functional Requirements:What the system should deal with --> Quality Attribu
     - Independent modules and methods
     - Single responsibility 
 
+## Component's Architecture
+- Layers: 
+    - Purpose of layers: Forces well formed and focused code, Modular
+    - Concepts Of Layer:
+        - Code Flow: Top layer calls the bottom layer but not the other way
+        - Loose Coupling
+        - Exception Handling between layers: Every layer should encapsulate their specific errors instead send a generic error to the upper layer.
+- Layers VS Tiers:
+    - Layers are part of the same process.
+    - Tiers are deployed on accross network.
+- Interfaces: 
+- Depedency Injection: 
+- SOLID
+    - Open Close: Inheritance
+- Naming Conventions
+    - Camel Case
+    - Underscore
+- Exception Handling
+    - Only catch exception if you have something to do it
+    - Catch only specific exception
+    - Use try catch on the smallest code fragments possible
+- Logging
+    - Track errors
+    - Gather Data     
 
+     
