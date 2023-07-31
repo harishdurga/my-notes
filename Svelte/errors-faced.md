@@ -1,0 +1,2 @@
+- To track the value of a checkbox we need to use the `bind:checked` but not the `bind:value`.
+- 
