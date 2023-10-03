@@ -11,7 +11,7 @@ Agile software delivery methodology focuses on delivering software in small incr
 
 ##### What is the Difference Between Requirements and Scope?
 - **`Requirements`** define the product behavior. They indicate what users want from the product.
-- **`Scope`** indicates the activities that need to be done in order to achieve the requirements.
+- **`Scope`** indicates the activities that need to be done to achieve the requirements.
 
 
  #### Three criteria to divide tests into different types:
@@ -31,4 +31,14 @@ Automated tests can be divided into three categories according to how much inter
   - _Branch coverage:_ This technique tests whether each branch in the software’s code has been executed at least once during testing. 
 - **Gray Box:** a mixture of black box and white box tests. The internals of the system are partially known to the test writer, as they would be to a specialist or privileged user. usually more time-consuming to write and run as well.
   - _Regression testing:_ This technique tests whether changes to the software have introduced new bugs or caused existing bugs to reappear. It requires some knowledge of the software’s code and architecture but not as much as white-box testing.
-  -_ Scenario-based testing:_ This technique tests the software’s behavior in specific scenarios or use cases. It requires some knowledge of the software’s code and architecture but not as much as white-box testing. 
+  -_ Scenario-based testing:_ This technique tests the software’s behavior in specific scenarios or use cases. It requires some knowledge of the software’s code and architecture but not as much as white-box testing.
+
+#### Requirement types
+- **Functional Tests:** These tests cover the functionality of the system under test added during the sprint, with functional tests from prior sprints ensuring that there are no regressions in functionality in later sprints. These kinds of tests are usually black-box tests, as these tests should be written and run according to the functionality that a typical user has access to.
+- **Non-functional tests:** These tests cover all the aspects of the system that are not covered by functional requirements but affect the user experience and functioning of the system. These tests cover aspects such as performance, usability, and security aspects. These kinds of tests are usually white-box tests, as they usually need to be formulated according to implementation details.
+
+> Tests that verify the correctness of the system are known as functional tests, while tests that verify the usability and performance of the system are known as non-functional tests. Common non-functional tests are performance tests, load tests, and security tests.
+
+>[INFO] Need to continue from testing pyramid. 
+
+
