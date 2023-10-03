@@ -22,8 +22,13 @@ Agile software delivery methodology focuses on delivering software in small incr
 #### System Knowledge:
 Automated tests can be divided into three categories according to how much internal knowledge they have of the system they test.
 - **Black box:** The internals of the system are treated as unknown by the test writer, as they would be to a user. These tests won't change if the internals of the system change.
- - Also called _functional testing_.
- - _Boundary value analysis:_ This technique tests the software’s behavior at the boundaries of its input domain. For example, if a function accepts an integer between 1 and 100, boundary value analysis would test the function with inputs of 1, 2, 100, and 101.
- - _Equivalence partitioning:_ This technique divides the input domain into equivalence classes and tests the software with representative inputs from each class. For example, if a function accepts integers between 1 and 100, equivalence partitioning would test the function with inputs of 0, 1, 50, 100, and 101.  
+  - Also called _functional testing_.
+  - _Boundary value analysis:_ This technique tests the software’s behavior at the boundaries of its input domain. For example, if a function accepts an integer between 1 and 100, boundary value analysis would test the function with inputs of 1, 2, 100, and 101.
+  - _Equivalence partitioning:_ This technique divides the input domain into equivalence classes and tests the software with representative inputs from each class. For example, if a function accepts integers between 1 and 100, equivalence partitioning would test the function with inputs of 0, 1, 50, 100, and 101.  
 - **White Box:** The internals of the system are fully known to the test writer, most likely a developer. Used to uncover hidden errors black box tests cannot find. These are prone to system internal change.
+  - Also called _structural testing_.
+  - _Statement coverage:_ This technique tests whether each statement in the software’s code has been executed at least once during testing.
+  - _Branch coverage:_ This technique tests whether each branch in the software’s code has been executed at least once during testing. 
 - **Gray Box:** a mixture of black box and white box tests. The internals of the system are partially known to the test writer, as they would be to a specialist or privileged user. usually more time-consuming to write and run as well.
+  - _Regression testing:_ This technique tests whether changes to the software have introduced new bugs or caused existing bugs to reappear. It requires some knowledge of the software’s code and architecture but not as much as white-box testing.
+  -_ Scenario-based testing:_ This technique tests the software’s behavior in specific scenarios or use cases. It requires some knowledge of the software’s code and architecture but not as much as white-box testing. 
